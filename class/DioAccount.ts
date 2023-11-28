@@ -4,9 +4,12 @@ export abstract class DioAccount {
   balance: number = 0
   private status: boolean = true
 
-  constructor(name: string, accountNumber: number){
+
+
+  constructor(name: string, accountNumber: number, balance: number){
     this.name = name
     this.accountNumber = accountNumber
+    this.balance = balance
   }
 
   setName = (name: string): void => {
@@ -18,14 +21,24 @@ export abstract class DioAccount {
     return this.name
   }
 
-  deposit = (): void => {
+  deposit = (balance:number): void => {
     if(this.validateStatus()){
-      console.log('Voce depositou')
+      this.balance = balance
+      console.log('Voce depositou '+balance)
     }
   }
 
-  withdraw = (): void => {
-    console.log('Voce sacou')
+  withdraw = (current:number, subtraction:number): void => {
+    if (this.balance > current){
+      this.balance = current
+      this.balance = subtraction    
+      
+      console.log('Voce sacou' +subtraction)
+      console.log(current - subtraction)
+      
+    }else{
+      console.log ('Saldo insuficiente')
+    }
   }
 
   getBalance = (): void => {
