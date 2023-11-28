@@ -1,55 +1,54 @@
 export abstract class DioAccount {
-  private name: string
-  private readonly accountNumber: number
-  balance: number = 0
-  private status: boolean = true
+  private name: string;
+  private readonly accountNumber: number;
+  balance: number = 0;
+  private status: boolean = true;
 
-
-
-  constructor(name: string, accountNumber: number, balance: number){
-    this.name = name
-    this.accountNumber = accountNumber
-    this.balance = balance
+  constructor(name: string, accountNumber: number, balance: number) {
+    this.name = name;
+    this.accountNumber = accountNumber;
+    this.balance = balance;
   }
 
   setName = (name: string): void => {
-    this.name = name
-    console.log('Nome alterado com sucesso!')
-  }
+    this.name = name;
+    console.log("Nome alterado com sucesso!");
+  };
 
   getName = (): string => {
-    return this.name
-  }
+    return this.name;
+  };
 
-  deposit = (balance:number): void => {
-    if(this.validateStatus()){
-      this.balance = balance
-      console.log('Voce depositou '+balance)
+  deposit = (balance: number): void => {
+    if (this.validateStatus()) {
+      this.balance = balance;
+      console.log("Voce depositou R$" + balance);
     }
-  }
+  };
 
-  withdraw = (current:number, subtraction:number): void => {
-    if (this.balance > current){
-      this.balance = current
-      this.balance = subtraction    
+  withdraw = (current: number): void => {
+    if (this.balance > current) {
       
-      console.log('Voce sacou' +subtraction)
-      console.log(current - subtraction)
+        this.balance - current
       
+      console.log("Voce sacou R$" + current);
+
+      this.balance = this.balance - current
+
     }else{
-      console.log ('Saldo insuficiente')
+      console.log("Saldo insuficiente")
     }
-  }
+  };
 
-  getBalance = (): void => {
-    console.log(this.balance)
-  }
+  getBalance = (current:any): void => {
+    console.log(this.balance);
+  };
 
   private validateStatus = (): boolean => {
     if (this.status) {
-      return this.status
+      return this.status;
     }
 
-    throw new Error('Conta inválida')
-  }
+    throw new Error("Conta inválida");
+  };
 }
