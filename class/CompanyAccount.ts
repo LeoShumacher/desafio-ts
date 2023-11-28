@@ -6,10 +6,16 @@ export class CompanyAccount extends DioAccount {
   }
 
   getLoan = (loan: any): void => {
-    console.log("Voce pegou um empréstimo de R$" + loan);
+    if(this.validateStatus()){
 
-    this.balance + loan;
-
-    this.balance = loan + this.balance;
+      console.log("Voce pegou um empréstimo de R$" + loan);
+      
+      this.balance + loan;
+      
+      this.balance = loan + this.balance;
+    
+    }else{
+      console.log("CONTA DESATIVADA")
+    }
   };
 }

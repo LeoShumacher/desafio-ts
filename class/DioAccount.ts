@@ -1,7 +1,7 @@
 export abstract class DioAccount {
   private readonly name: string;
   private readonly accountNumber: number;
-  balance: number = 0;
+   balance: number = 0;
   private status: boolean = true;
 
   constructor(name: string, accountNumber: number, balance: number) {
@@ -14,10 +14,16 @@ export abstract class DioAccount {
     return this.name;
   };
 
-  deposit = (balance: number): void => {
+  getBalance = (): number => {
+    return this.balance = 0
+  }
+
+  deposit = (value: number): void => {
     if (this.validateStatus()) {
-      this.balance = balance;
-      console.log("Voce depositou R$" + balance);
+      value = this.balance + value
+      console.log("Voce depositou R$" + value);
+
+      this.balance = this.balance + value
     }
   };
 
@@ -33,15 +39,14 @@ export abstract class DioAccount {
     }
   };
 
-  getBalance = (): void => {
-    console.log(this.balance);
-  };
 
-  private validateStatus = (): boolean => {
+   validateStatus = (): boolean => {
     if (this.status) {
       return this.status;
     }
 
-    throw new Error("Conta inválida");
+    throw new Error("CONTA BLOQUEADA");
   };
+
+
 }
