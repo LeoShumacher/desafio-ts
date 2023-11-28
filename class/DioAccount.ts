@@ -1,5 +1,5 @@
 export abstract class DioAccount {
-  private name: string;
+  private readonly name: string;
   private readonly accountNumber: number;
   balance: number = 0;
   private status: boolean = true;
@@ -9,11 +9,6 @@ export abstract class DioAccount {
     this.accountNumber = accountNumber;
     this.balance = balance;
   }
-
-  setName = (name: string): void => {
-    this.name = name;
-    console.log("Nome alterado com sucesso!");
-  };
 
   getName = (): string => {
     return this.name;
@@ -28,19 +23,17 @@ export abstract class DioAccount {
 
   withdraw = (current: number): void => {
     if (this.balance > current) {
-      
-        this.balance - current
-      
+      this.balance - current;
+
       console.log("Voce sacou R$" + current);
 
-      this.balance = this.balance - current
-
-    }else{
-      console.log("Saldo insuficiente")
+      this.balance = this.balance - current;
+    } else {
+      console.log("Saldo insuficiente");
     }
   };
 
-  getBalance = (current:any): void => {
+  getBalance = (): void => {
     console.log(this.balance);
   };
 
