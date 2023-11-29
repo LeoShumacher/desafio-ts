@@ -11,7 +11,7 @@ export class CompanyAccount extends DioAccount {
       
       console.log("Voce pegou um empréstimo de R$" + loan);
       
-      return this.getBalance()
+      return this.setNewBalance(this.getBalance() + loan)
       
     } throw new Error('Conta desativada');
     

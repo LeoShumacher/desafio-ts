@@ -4,7 +4,7 @@ import { AdminAccount } from './class/AdminAccount'
 
 const peopleAccount: PeopleAccount = new PeopleAccount(1, 'Leo', 10,1000)
 peopleAccount.deposit(3000)
-peopleAccount.withdraw(200)
+peopleAccount.withdraw(3)
 console.log(peopleAccount)
 
 const companyAccount: CompanyAccount = new CompanyAccount('DIO', 20,200)
