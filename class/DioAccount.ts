@@ -22,13 +22,13 @@ export abstract class DioAccount {
     return (this.balance = newbalance)
   }
 
-  deposit = (value: number): void => {
+  deposit = (value: number): number => {
     if (this.validateStatus()) {
       value = this.balance + value
       console.log("Voce depositou R$" + value);
 
-      this.balance = this.balance + value
-    }
+      return this.balance =+ value
+    } throw new Error
   };
 
   withdraw = (current: number): void => {
