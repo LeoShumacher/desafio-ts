@@ -15,7 +15,7 @@ export abstract class DioAccount {
   };
 
   getBalance = (): number => {
-    return this.balance = 0
+    return this.balance
   }
 
   deposit = (value: number): void => {
