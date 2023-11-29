@@ -1,7 +1,7 @@
 export abstract class DioAccount {
   private readonly name: string;
   private readonly accountNumber: number;
-   balance: number = 0;
+  private balance: number = 0;
   private status: boolean = true;
 
   constructor(name: string, accountNumber: number, balance: number) {
@@ -16,6 +16,10 @@ export abstract class DioAccount {
 
   getBalance = (): number => {
     return this.balance
+  }
+
+  setNewBalance = (newbalance: number): number => {
+    return (this.balance = newbalance)
   }
 
   deposit = (value: number): void => {
@@ -40,7 +44,7 @@ export abstract class DioAccount {
   };
 
 
-   validateStatus = (): boolean => {
+   private validateStatus = (): boolean => {
     if (this.status) {
       return this.status;
     }
@@ -48,5 +52,8 @@ export abstract class DioAccount {
     throw new Error("CONTA BLOQUEADA");
   };
 
+  getStatus = (): boolean => {
+    return this.status
+  }
 
 }

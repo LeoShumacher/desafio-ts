@@ -5,11 +5,11 @@ export class AdminAccount extends DioAccount {
       super(name, accountNumber, balance);
     }
     deposit = (value: number): void => {
-        if (this.validateStatus()) {
-          value = this.balance + value
+        if (this.getStatus()) {
+          this.setNewBalance(this.getBalance() + value)
           console.log("O admin depositou R$" + value + " e ganhou mais R$" + 10);
     
-          this.balance = this.balance + value + 10
+           this.setNewBalance(this.getBalance() + 10)
         }
       };
 }
